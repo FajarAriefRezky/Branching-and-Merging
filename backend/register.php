@@ -27,6 +27,18 @@ if(isset($_POST['submit'])) {
         
     $users = mysqli_query($db_connect,"INSERT INTO users (name,email, password,created_at) VALUES
                             ('$name','$email','$password','$created_at')");
+    $getUserdata = mysqli_query($db_connect,"SELECT name, role FROM users WHERE email = '$email'");
 
-    echo "registrasi berhasil";
+    $sessionData = mysqli_fetch_assoc($getUserdata);
+
+    $_SESSION['name'] = $sessionData['name'];
+    $_SESSION['role'] = $sessionData['role'];
+
+    // print_r(mysqli_fetch_assoc($getUserdata));
+     // $_SESSION['name'] = $name;
+     // $_SESSION['role'] =
+
+     // echo "registrasi berhasil";
+
+     header('Location:./../profile.php');
 }
