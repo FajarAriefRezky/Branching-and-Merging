@@ -13,6 +13,6 @@ if($_SESSION['role'] != 'admin') {
 </head>
 <body>
     <h1>Selamat datang Administrator: <?php echo $_SESSION['name']; ?></h1>
-    <button href="./backend/logout.php">Logout</button>
+    <a href="./backend/logout.php">Logout</a>
 </body>
 </html>
